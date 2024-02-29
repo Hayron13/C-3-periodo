@@ -2,12 +2,24 @@
 #include<stdlib.h>
 
 // Lista simplesmnete encadeada
-typedef struct Elemento{
+typedef struct elemento{
     int id;
-    struct Elemento *prox;
+    struct elemento *prox;
 }e;
 
-void insert_element(){
+void insert_element(struct elemento *lista, int id){
+    
+    struct elemento *novo;
+    struct elemento *aux = lista; // ponteiro auxiliar
+    novo = malloc (sizeof(struct elemento));
+    novo->id = id;
+    novo->prox = NULL;
+
+    while (aux->prox != NULL){
+        aux = aux->prox;
+    }
+    
+    aux->prox =novo;
 
 }
 
@@ -17,10 +29,6 @@ int main(){
     idades = malloc(50*sizeof(int));
 
 
-    struct Elemento *novo;
-    novo = malloc (sizeof(struct Elemento));
-    novo->id = 123;
-    novo->prox = NULL;
 
     return 0;
     }
